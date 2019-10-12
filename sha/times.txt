@@ -1,0 +1,17 @@
+Brices-MacBook-Pro:sha bricehuang$ date && snarkjs setup && date
+Thu Oct 10 20:19:51 PDT 2019
+Thu Oct 10 20:42:05 PDT 2019
+22 min
+Brices-MacBook-Pro:sha bricehuang$ date && snarkjs calculatewitness && date
+Thu Oct 10 21:00:59 PDT 2019
+Thu Oct 10 21:01:05 PDT 2019
+6 sec
+Brices-MacBook-Pro:sha bricehuang$ date && snarkjs proof && date
+Thu Oct 10 21:01:10 PDT 2019
+Thu Oct 10 21:03:28 PDT 2019
+2 min
+Brices-MacBook-Pro:sha bricehuang$ date && snarkjs verify && date
+Thu Oct 10 21:10:50 PDT 2019
+OK
+Thu Oct 10 21:10:54 PDT 2019
+4 sec

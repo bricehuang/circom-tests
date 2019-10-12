@@ -1,0 +1,200 @@
+{
+ "mainCode": "{\n}\n",
+ "signalName2Idx": {
+  "one": 0,
+  "main.in": 9,
+  "main.out[0]": 1,
+  "main.out[1]": 2,
+  "main.out[2]": 3,
+  "main.out[3]": 4,
+  "main.out[4]": 5,
+  "main.out[5]": 6,
+  "main.out[6]": 7,
+  "main.out[7]": 8
+ },
+ "components": [
+  {
+   "name": "main",
+   "params": {
+    "n": "8"
+   },
+   "template": "Num2Bits",
+   "inputSignals": 1
+  }
+ ],
+ "componentName2Idx": {
+  "main": 0
+ },
+ "signals": [
+  {
+   "names": [
+    "one"
+   ],
+   "triggerComponents": []
+  },
+  {
+   "names": [
+    "main.out[0]"
+   ],
+   "triggerComponents": []
+  },
+  {
+   "names": [
+    "main.out[1]"
+   ],
+   "triggerComponents": []
+  },
+  {
+   "names": [
+    "main.out[2]"
+   ],
+   "triggerComponents": []
+  },
+  {
+   "names": [
+    "main.out[3]"
+   ],
+   "triggerComponents": []
+  },
+  {
+   "names": [
+    "main.out[4]"
+   ],
+   "triggerComponents": []
+  },
+  {
+   "names": [
+    "main.out[5]"
+   ],
+   "triggerComponents": []
+  },
+  {
+   "names": [
+    "main.out[6]"
+   ],
+   "triggerComponents": []
+  },
+  {
+   "names": [
+    "main.out[7]"
+   ],
+   "triggerComponents": []
+  },
+  {
+   "names": [
+    "main.in"
+   ],
+   "triggerComponents": [
+    0
+   ]
+  }
+ ],
+ "constraints": [
+  [
+   {
+    "1": "1"
+   },
+   {
+    "0": "21888242871839275222246405745257275088548364400416034343698204186575808495616",
+    "1": "1"
+   },
+   {}
+  ],
+  [
+   {
+    "2": "1"
+   },
+   {
+    "0": "21888242871839275222246405745257275088548364400416034343698204186575808495616",
+    "2": "1"
+   },
+   {}
+  ],
+  [
+   {
+    "3": "1"
+   },
+   {
+    "0": "21888242871839275222246405745257275088548364400416034343698204186575808495616",
+    "3": "1"
+   },
+   {}
+  ],
+  [
+   {
+    "4": "1"
+   },
+   {
+    "0": "21888242871839275222246405745257275088548364400416034343698204186575808495616",
+    "4": "1"
+   },
+   {}
+  ],
+  [
+   {
+    "5": "1"
+   },
+   {
+    "0": "21888242871839275222246405745257275088548364400416034343698204186575808495616",
+    "5": "1"
+   },
+   {}
+  ],
+  [
+   {
+    "6": "1"
+   },
+   {
+    "0": "21888242871839275222246405745257275088548364400416034343698204186575808495616",
+    "6": "1"
+   },
+   {}
+  ],
+  [
+   {
+    "7": "1"
+   },
+   {
+    "0": "21888242871839275222246405745257275088548364400416034343698204186575808495616",
+    "7": "1"
+   },
+   {}
+  ],
+  [
+   {
+    "8": "1"
+   },
+   {
+    "0": "21888242871839275222246405745257275088548364400416034343698204186575808495616",
+    "8": "1"
+   },
+   {}
+  ],
+  [
+   {},
+   {},
+   {
+    "1": "21888242871839275222246405745257275088548364400416034343698204186575808495616",
+    "2": "21888242871839275222246405745257275088548364400416034343698204186575808495615",
+    "3": "21888242871839275222246405745257275088548364400416034343698204186575808495613",
+    "4": "21888242871839275222246405745257275088548364400416034343698204186575808495609",
+    "5": "21888242871839275222246405745257275088548364400416034343698204186575808495601",
+    "6": "21888242871839275222246405745257275088548364400416034343698204186575808495585",
+    "7": "21888242871839275222246405745257275088548364400416034343698204186575808495553",
+    "8": "21888242871839275222246405745257275088548364400416034343698204186575808495489",
+    "9": "1"
+   }
+  ]
+ ],
+ "templates": {
+  "Num2Bits": "function(ctx) {\n    ctx.setVar(\"lc1\", [], \"0\");\n    for (ctx.setVar(\"i\", [], \"0\");bigInt(bigInt(ctx.getVar(\"i\",[])).lt(bigInt(ctx.getVar(\"n\",[]))) ? 1 : 0).neq(bigInt(0));(ctx.setVar(\"i\", [], bigInt(ctx.getVar(\"i\",[])).add(bigInt(\"1\")).mod(__P__))).add(__P__).sub(bigInt(1)).mod(__P__)) { \n    {\n        ctx.setSignal(\"out\", [ctx.getVar(\"i\",[])], bigInt(bigInt(ctx.getVar(\"i\",[])).greater(bigInt(256)) ? 0 : bigInt(ctx.getSignal(\"in\", [])).shr(bigInt(ctx.getVar(\"i\",[]))).and(__MASK__)).and(bigInt(\"1\")).and(__MASK__));\n        ctx.assert(bigInt(ctx.getSignal(\"out\", [ctx.getVar(\"i\",[])])).mul(bigInt(bigInt(ctx.getSignal(\"out\", [ctx.getVar(\"i\",[])])).add(__P__).sub(bigInt(\"1\")).mod(__P__))).mod(__P__), \"0\", \"/Users/bricehuang/Dropbox/Projects/circom/bitify/bitify.circom:8:8\");\n        ctx.setVar(\"lc1\", [], bigInt(ctx.getVar(\"lc1\",[])).add(bigInt(bigInt(ctx.getSignal(\"out\", [ctx.getVar(\"i\",[])])).mul(bigInt(bigInt(\"2\").modPow(bigInt(ctx.getVar(\"i\",[])), __P__))).mod(__P__))).mod(__P__));\n    }\n\n     }\n    ctx.assert(ctx.getVar(\"lc1\",[]), ctx.getSignal(\"in\", []), \"/Users/bricehuang/Dropbox/Projects/circom/bitify/bitify.circom:11:4\");\n}\n"
+ },
+ "functions": {},
+ "nPrvInputs": 1,
+ "nPubInputs": 0,
+ "nInputs": 1,
+ "nOutputs": 8,
+ "nVars": 10,
+ "nConstants": 0,
+ "nSignals": 10
+}
