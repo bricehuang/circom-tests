@@ -1,4 +1,4 @@
-include "../circomlib/circuits/mimc.circom"
+include "../circomlib/circuits/mimcsponge.circom"
 include "../circomlib/circuits/comparators.circom"
 
 template AbsoluteDifference() {
@@ -39,21 +39,21 @@ template Main() {
     lt.out === 1;
 
     /*
-        161 = ceil(log_2(p)/log_2(3)), as specified by mimc paper, where
+        220 = 2 * ceil(log_5 p), as specified by mimc paper, where
         p = 21888242871839275222246405745257275088548364400416034343698204186575808495617
     */
-    component mimc1 = MultiMiMC7(2, 91);
-    component mimc2 = MultiMiMC7(2, 91);
+    component mimc1 = MiMCSponge(2, 220, 1);
+    component mimc2 = MiMCSponge(2, 220, 1);
 
-    mimc1.in[0] <== x1;
-    mimc1.in[1] <== y1;
+    mimc1.ins[0] <== x1;
+    mimc1.ins[1] <== y1;
     mimc1.k <== 0;
-    mimc2.in[0] <== x2;
-    mimc2.in[1] <== y2;
+    mimc2.ins[0] <== x2;
+    mimc2.ins[1] <== y2;
     mimc2.k <== 0;
 
-    pub1 <== mimc1.out;
-    pub2 <== mimc2.out;
+    pub1 <== mimc1.outs[0];
+    pub2 <== mimc2.outs[0];
 }
 
 component main = Main();
